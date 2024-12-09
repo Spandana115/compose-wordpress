@@ -10,7 +10,7 @@ services:
       - MYSQL_ROOT_PASSWORD=wordpress
       - MYSQL_DATABASE=databaseword
       - MYSQL_USER=Admin
-      - MYSQL_PASSWORD=admin123
+      - MYSQL_PASSWORD=Admin123
 
   wordpress:
     image: wordpress:latest
