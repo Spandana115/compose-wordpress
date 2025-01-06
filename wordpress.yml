@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: word-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: wordpress
+  template:
+    metadata:
+      labels:
+        tier: wordpress
+    spec:
+      containers:
+      - name: wordpress-container
+        image: wordpress:latest  # Corrected image name
+        ports:
+        - containerPort: 80   # Corrected field name
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: word-service
+spec:
+  selector:
+    tier: wordpress
+  ports:
+  - protocol: TCP
+    port: 80        # External port exposed
+    targetPort: 80  # Port inside container
+  type: LoadBalancer
