@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      tier: mysql
+  template:
+    metadata:
+      labels:
+        tier: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: bhargavibairagoni/mysql:mysqlimage
+        ports:
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "wordpress"  # Set your root password here
+        - name: MYSQL_DATABASE
+          value: "databaseword"  # Set your database name here
+        - name: MYSQL_USER
+          value: "admin"  # Set your MySQL user here
+        - name: MYSQL_PASSWORD
+          value: "ADMIN123"  # Set the password for your MySQL user here
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+spec:
+  selector:
+    tier: mysql
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306
+  type: LoadBalancer
