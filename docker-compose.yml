@@ -18,10 +18,9 @@ services:
       - "80:80"
     restart: always
     environment:
-      - WORDPRESS_DB_HOST=wordpress
-      - WORDPRESS_DB_USER=databaseword
-      - WORDPRESS_DB_PASSWORD=admin
-      - WORDPRESS_DB_NAME=ADMIN123
-
+      - WORDPRESS_DB_HOST=db  
+      - WORDPRESS_DB_USER=admin 
+      - WORDPRESS_DB_PASSWORD=ADMIN123  
+      - WORDPRESS_DB_NAME=databaseword  
 volumes:
   db_data:
