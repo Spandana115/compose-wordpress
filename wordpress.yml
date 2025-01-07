@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: wordpress-container
-        image: bhargavibairagoni/mysql:wordpress
+        image: bhargavibairagoni/wordpress:wordimage
         ports:
         - containerPort: 80   
 
