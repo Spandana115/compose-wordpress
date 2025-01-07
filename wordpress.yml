@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: wordpress-container
-        image: wordpress:latest  # Corrected image name
+        image: bhargavibairagoni/wordpress:latest  
         ports:
-        - containerPort: 80   # Corrected field name
+        - containerPort: 80   
 
 ---
 apiVersion: v1
