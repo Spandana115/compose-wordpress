@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: bhargavibairagoni/mysql:mysqlimage
+        image: spandana837/mysql:mysqlimage
         ports:
         - containerPort: 3306
         env:
